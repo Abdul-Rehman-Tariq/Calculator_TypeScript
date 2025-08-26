@@ -1,15 +1,45 @@
 /* New Calculator Layout Styles */
-.calculator-main-layout {
-  min-height: 100vh;
-  background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+.calculator-content-centered {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+.calculator-center {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto 2rem auto;
+}
+.calculator-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+.variable-manager, .history-panel {
+  max-width: 340px;
+  width: 100%;
+  margin: 0 auto 1.2rem auto;
+}
+.calculator-main-layout {
+  min-height: 100vh;
+  width: 30vw;
+  background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 0 2.5rem 0;
 }
 .calculator-header {
   text-align: center;
-  padding: 2rem 0 1rem 0;
+  padding: 1rem 1rem 1rem 1rem;
   background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  margin-bottom: 1rem;
 }
 .calculator-header h1 {
   margin: 0;
@@ -58,13 +88,15 @@ body {
 }
 
 .expression-input {
-  width: 100%;
-  font-size: 1.1rem;
+  display: block;
+  width: 95%;
+  max-width: 420px;
+  margin: 0 auto 0.8rem auto;
+  font-size: 1.15rem;
   padding: 0.8rem;
-  margin-bottom: 0.8rem;
   border-radius: 10px;
-  border: none;
-  box-shadow: inset 0 -2px 0 rgba(0,0,0,0.02);
+  border: 1px solid #d1d5db;
+  box-shadow: 0 2px 8px rgba(14,30,37,0.06);
   background: #fff;
   outline: none;
   transition: box-shadow 0.15s ease;
@@ -198,30 +230,79 @@ body {
 }
 .button-panel {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
   margin-bottom: 1rem;
 }
 .button-panel button {
-  font-size: 1.1rem;
-  padding: 0.7rem 0;
-  border-radius: 6px;
-  border: 1px solid #bbb;
-  background: #fff;
+  font-size: 1.05rem;
+  padding: 0.9rem 0;
+  border-radius: 8px;
+  border: none;
+  background: #e7eaec;
+  color: #111;
   cursor: pointer;
-  transition: background 0.2s;
+  box-shadow: 0 4px 8px rgba(14,30,37,0.06);
+  transition: transform 0.06s ease, box-shadow 0.06s ease, filter 0.06s ease;
 }
-.button-panel button:hover {
-  background: #e0e0e0;
+.button-panel button:hover { filter: brightness(0.98); }
+
+/* prominent buttons styling */
+.btn { font-weight: 600; }
+
+.btn.number {
+  background: #ffffff;
+  color: #222;
+  font-weight: 600;
 }
+.btn.operator {
+  background: #ffebee;
+  color: #d32f2f;
+  font-weight: 700;
+}
+.btn.func {
+  background: #e3f2fd;
+  color: #1976d2;
+  font-weight: 700;
+}
+.btn.control {
+  background: #ffbdbd;
+  color: #b71c1c;
+  font-weight: 700;
+}
+.btn.equals {
+  background: #43a047;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(67,160,71,0.18);
+}
+
+/* Layout tweaks: make equals prominent and controls span */
+.button-panel .btn.equals { grid-column: 4; grid-row: 1 / span 2; align-self: stretch; }
+.button-panel .btn.control:nth-of-type(1), .button-panel .btn.control:nth-of-type(2) { grid-column: span 2 }
 .variable-manager {
   margin-bottom: 1rem;
 }
+.variable-manager-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1.1rem;
+}
+.variable-manager-input-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.7rem;
+}
 .variable-manager input {
-  margin-right: 0.5rem;
-  padding: 0.3rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #f8fafc;
+  font-size: 1rem;
 }
 .variable-manager .error {
   color: #d32f2f;
@@ -232,7 +313,43 @@ body {
   padding: 0;
 }
 .variable-manager li {
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.6rem;
+  font-size: 1.08rem;
+  display: flex;
+  align-items: center;
+}
+.variable-manager .add-btn {
+  background: #218838;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.5rem 1.2rem;
+  margin-left: 0.5rem;
+  box-shadow: 0 2px 8px rgba(33,136,56,0.12);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.variable-manager .add-btn:hover {
+  background: #18692b;
+}
+.variable-manager .delete-btn {
+  background: #e53935;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.25rem 0.8rem;
+  margin-left: 0.7rem;
+  box-shadow: 0 2px 8px rgba(229,57,53,0.12);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+.variable-manager .delete-btn:hover {
+  background: #b71c1c;
 }
 .history-panel {
   margin-bottom: 1rem;

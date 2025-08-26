@@ -38,17 +38,21 @@ const VariableManager = () => {
   return (
     <div className="variable-manager">
       <h3>Variables</h3>
-      <div>
+      <div className="variable-manager-inputs">
         <input value={name} onChange={e => setName(e.target.value)} placeholder="Name" />
-        <input value={value} onChange={e => setValue(e.target.value)} placeholder="Value" />
-        <button onClick={handleAdd}>Add</button>
-        {error && <span className="error">{error}</span>}
+        <div className="variable-manager-input-row">
+          <input value={value} onChange={e => setValue(e.target.value)} placeholder="Value" />
+          <button className="add-btn" onClick={handleAdd}>Add</button>
+        </div>
       </div>
+      {error && <span className="error">{error}</span>}
       <ul>
         {variables.map(v => (
           <li key={v.name}>
-            {v.name}: {v.value}
-            <button onClick={() => deleteVariable(v.name)}>Delete</button>
+            {v.name} = {v.value}
+            <button className="delete-btn" onClick={() => deleteVariable(v.name)}>
+              <span style={{fontWeight: 'bold'}}>✖</span>
+            </button>
           </li>
         ))}
       </ul>

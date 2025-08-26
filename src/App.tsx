@@ -12,18 +12,17 @@ function App() {
     <div className="calculator-main-layout">
       <header className="calculator-header">
         <h1>Scientific Calculator</h1>
-        
       </header>
-      <main className="calculator-content">
-        <section className="calculator-left">
+      <main className="calculator-content-centered">
+        <div className="calculator-center">
           <ExpressionInput />
           <OutputDisplay />
           <ButtonPanel />
-        </section>
-        <aside className="calculator-right">
+        </div>
+        <div className="calculator-panels">
           <VariableManager />
           <HistoryPanel />
-        </aside>
+        </div>
       </main>
     </div>
   );
