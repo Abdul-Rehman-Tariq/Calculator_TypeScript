@@ -1,4 +1,4 @@
-import React from 'react';
+// React import removed; automatic JSX runtime is used
 import { useCalculatorStore } from '../store';
 
 const HistoryPanel = () => {

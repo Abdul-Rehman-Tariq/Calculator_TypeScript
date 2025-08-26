@@ -1,4 +1,4 @@
-import React from 'react';
+// React import removed; automatic JSX runtime is used
 import ExpressionInput from './components/ExpressionInput';
 import OutputDisplay from './components/OutputDisplay';
 import ButtonPanel from './components/ButtonPanel';

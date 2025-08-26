@@ -1,4 +1,4 @@
-import React from 'react';
+import type { KeyboardEvent } from 'react';
 import { useCalculatorStore } from '../store';
 
 const ExpressionInput = () => {
@@ -11,7 +11,7 @@ const ExpressionInput = () => {
   const variables = useCalculatorStore((s) => s.variables);
   const constants = useCalculatorStore((s) => s.constants);
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       resetError();
       try {

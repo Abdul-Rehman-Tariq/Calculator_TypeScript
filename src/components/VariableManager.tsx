@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useCalculatorStore } from '../store';
 
 const reserved = ['pi', 'e'];
