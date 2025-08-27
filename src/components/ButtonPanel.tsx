@@ -2,11 +2,12 @@
 import { useCalculatorStore } from '../store';
 
 const buttons = [
-  '7','8','9','/','sqrt(',
-  '4','5','6','*','^',
-  '1','2','3','-','(',
-  '0','.','+','pi',')',
-  'sin(','cos(','tan(','e','Clear',
+  '7','8','9','/',
+  '4','5','6','*',
+  '1','2','3','-',
+  '0','.','+','(',
+  ')','sqrt(','sin(','cos(',
+  'tan(','pi','e','Clear',
   'Del','='
 ];
 
@@ -22,7 +23,10 @@ const ButtonPanel = () => {
 
   const handleClick = (btn: string) => {
     resetError();
-    if (btn === 'Clear') setExpression('');
+    if (btn === 'Clear') {
+      setExpression('');
+      setResult('');
+    }
     else if (btn === 'Del') setExpression(expression.slice(0, -1));
     else if (btn === '=') {
       try {
