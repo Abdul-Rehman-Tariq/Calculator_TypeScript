@@ -221,6 +221,7 @@ body {
   border-radius: 12px;
   font-size: 1rem;
   background: #fff;
+  color: #333;
   box-sizing: border-box;
   transition: all 0.2s ease;
 }
@@ -441,6 +442,7 @@ body {
     font-size: 0.9rem;
     min-width: 0;
     flex: 1;
+    color: #333;
   }
   
   .variable-manager .add-btn {
