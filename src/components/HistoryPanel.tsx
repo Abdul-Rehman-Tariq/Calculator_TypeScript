@@ -20,7 +20,9 @@ const HistoryPanel = () => {
           <li key={idx}>
             <span className="expr" onClick={() => setExpression(item.expression)}>{item.expression}</span>
             <span className="res">= {item.result}</span>
-            <button onClick={() => deleteHistory(idx)}>Delete</button>
+            <button className="delete-btn" onClick={() => deleteHistory(idx)}>
+              <span style={{fontWeight: 'bold'}}>✖</span>
+            </button>
           </li>
         ))}
       </ul>
