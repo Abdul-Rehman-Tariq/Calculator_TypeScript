@@ -260,6 +260,13 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
 }
+.variable-manager .error {
+  color: #dc3545;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  display: block;
+}
 
 /* Lists */
 .variable-manager ul, .history-panel ul {
@@ -276,6 +283,7 @@ body {
   padding: 0.8rem 0;
   border-bottom: 1px solid #eee;
   font-size: 1rem;
+  color: #333;
 }
 .history-panel .expr {
   color: #667eea;
